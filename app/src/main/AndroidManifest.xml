@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.activitiescomrecycler">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivitiesComRecycler"
         tools:targetApi="31">
+        <activity
+            android:name=".PostsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_posts"
+            android:theme="@style/Theme.ActivitiesComRecycler.NoActionBar" />
+        <activity
+            android:name=".UserActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
