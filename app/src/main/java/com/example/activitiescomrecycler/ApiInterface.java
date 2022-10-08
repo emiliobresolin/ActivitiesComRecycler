@@ -21,4 +21,7 @@ public interface ApiInterface
 
     @GET("/todos")
     Call<List<Todos>> getTodos();
+
+    @GET("/albums")
+    Call<List<Albums>> getAlbums();
 }

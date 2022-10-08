@@ -16,47 +16,47 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CommentsActivity extends AppCompatActivity
+public class AlbumsActivity extends AppCompatActivity
 {
     RecyclerView recyclerView;
     ProgressBar progressBar;
     LinearLayoutManager layoutManager;
-    CommentAdapter adapter;
-    List<Comments> commentList = new ArrayList<>();
+    AlbumAdapter adapter;
+    List<Albums> albumList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comments);
+        setContentView(R.layout.activity_albums);
 
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new CommentAdapter(commentList);
+        adapter = new AlbumAdapter(albumList);
         recyclerView.setAdapter(adapter);
 
-        fetchComments();
+        fetchAlbums();
     }
-    private void fetchComments()
+    private void fetchAlbums()
     {
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getRetrofitClient().getComments().enqueue(new Callback<List<Comments>>() {
+        RetrofitClient.getRetrofitClient().getAlbums().enqueue(new Callback<List<Albums>>() {
             @Override
-            public void onResponse(Call<List<Comments>> call, Response<List<Comments>> response) {
+            public void onResponse(Call<List<Albums>> call, Response<List<Albums>> response) {
                 if (response.isSuccessful() && response.body() != null)
                 {
-                    commentList.addAll(response.body());
+                    albumList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                     progressBar.setVisibility(View.GONE);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Comments>> call, Throwable t)
+            public void onFailure(Call<List<Albums>> call, Throwable t)
             {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(CommentsActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AlbumsActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
