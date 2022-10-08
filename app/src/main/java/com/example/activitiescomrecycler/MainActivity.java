@@ -21,5 +21,10 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(view.getContext(), PostsActivity.class);
         startActivity(intent);
     }
+    public void onClickUsers(View view)
+    {
+        Intent intent = new Intent(view.getContext(), UsersActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -2,22 +2,22 @@ package com.example.activitiescomrecycler;
 
 public class Users
 {
-    private String title;
-    private String body;
+    private String name;
+    private String email;
 
     public Users(String title, String body)
     {
-        this.title = title;
-        this.body = body;
+        this.name = title;
+        this.email = body;
     }
 
     public String getTitle()
     {
-        return title;
+        return name;
     }
 
     public String getBody()
     {
-        return body;
+        return email;
     }
 }
