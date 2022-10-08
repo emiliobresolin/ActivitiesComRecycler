@@ -18,4 +18,7 @@ public interface ApiInterface
 
     @GET("/photos")
     Call<List<Photos>> getPhotos();
+
+    @GET("/todos")
+    Call<List<Todos>> getTodos();
 }

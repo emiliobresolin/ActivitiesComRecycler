@@ -3,12 +3,12 @@ package com.example.activitiescomrecycler;
 public class Todos
 {
     private String title;
-    private String body;
+    private String id;
 
     public Todos(String title, String body)
     {
         this.title = title;
-        this.body = body;
+        this.id = body;
     }
 
     public String getTitle()
@@ -18,6 +18,6 @@ public class Todos
 
     public String getBody()
     {
-        return body;
+        return id;
     }
 }
