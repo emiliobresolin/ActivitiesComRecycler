@@ -9,6 +9,10 @@ public interface ApiInterface
 {
     @GET("/posts")
     Call<List<Posts>> getPosts();
+
     @GET("/users")
     Call<List<Users>> getUsers();
+
+    @GET("/comments")
+    Call<List<Comments>> getComments();
 }
