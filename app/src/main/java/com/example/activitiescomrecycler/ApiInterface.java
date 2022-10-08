@@ -15,4 +15,7 @@ public interface ApiInterface
 
     @GET("/comments")
     Call<List<Comments>> getComments();
+
+    @GET("/photos")
+    Call<List<Photos>> getPhotos();
 }

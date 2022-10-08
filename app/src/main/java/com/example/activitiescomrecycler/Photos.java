@@ -3,12 +3,12 @@ package com.example.activitiescomrecycler;
 public class Photos
 {
     private String title;
-    private String body;
+    private String url;
 
     public Photos(String title, String body)
     {
         this.title = title;
-        this.body = body;
+        this.url = body;
     }
 
     public String getTitle()
@@ -18,6 +18,6 @@ public class Photos
 
     public String getBody()
     {
-        return body;
+        return url;
     }
 }

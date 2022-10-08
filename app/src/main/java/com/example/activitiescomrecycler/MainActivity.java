@@ -31,4 +31,9 @@ public class MainActivity extends AppCompatActivity
         Intent intent = new Intent(view.getContext(), CommentsActivity.class);
         startActivity(intent);
     }
+    public void onClickPhotos(View view)
+    {
+        Intent intent = new Intent(view.getContext(), PhotosActivity.class);
+        startActivity(intent);
+    }
 }
