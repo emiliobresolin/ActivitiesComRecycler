@@ -14,7 +14,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder>
 {
     private List<Photos> photosList;
 
-    public PhotoAdapter(List<Photos> commentsList) {
+    public PhotoAdapter(List<Photos> photosList)
+    {
         this.photosList = photosList;
     }
 
