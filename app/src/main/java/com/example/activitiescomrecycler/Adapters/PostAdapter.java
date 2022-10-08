@@ -1,4 +1,4 @@
-package com.example.activitiescomrecycler;
+package com.example.activitiescomrecycler.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,37 +8,39 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.activitiescomrecycler.Entities.Posts;
+import com.example.activitiescomrecycler.R;
+
 import java.util.List;
 
-public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder>
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>
 {
-    private List<Albums> albumsList;
+    private List<Posts> postsList;
 
-    public AlbumAdapter(List<Albums> albumsList)
-    {
-        this.albumsList = albumsList;
+    public PostAdapter(List<Posts> postsList) {
+        this.postsList = postsList;
     }
 
     @NonNull
     @Override
-    public AlbumAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_item, parent, false);
-        return new AlbumAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AlbumAdapter.ViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
-        holder.tvTitle.setText(albumsList.get(position).getTitle());
-        holder.tvBody.setText(albumsList.get(position).getBody());
+        holder.tvTitle.setText(postsList.get(position).getTitle());
+        holder.tvBody.setText(postsList.get(position).getBody());
     }
 
     @Override
     public int getItemCount()
     {
-        return albumsList.size();
+        return postsList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder

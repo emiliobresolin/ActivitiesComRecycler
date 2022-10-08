@@ -1,5 +1,12 @@
 package com.example.activitiescomrecycler;
 
+import com.example.activitiescomrecycler.Entities.Albums;
+import com.example.activitiescomrecycler.Entities.Comments;
+import com.example.activitiescomrecycler.Entities.Photos;
+import com.example.activitiescomrecycler.Entities.Posts;
+import com.example.activitiescomrecycler.Entities.Todos;
+import com.example.activitiescomrecycler.Entities.Users;
+
 import java.util.List;
 
 import retrofit2.Call;

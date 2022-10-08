@@ -1,4 +1,4 @@
-package com.example.activitiescomrecycler;
+package com.example.activitiescomrecycler.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,15 +8,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.activitiescomrecycler.Entities.Photos;
+import com.example.activitiescomrecycler.R;
+
 import java.util.List;
 
-public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>
+public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder>
 {
-    private List<Todos> todosList;
+    private List<Photos> photosList;
 
-    public TodoAdapter(List<Todos> todosList)
+    public PhotoAdapter(List<Photos> photosList)
     {
-        this.todosList = todosList;
+        this.photosList = photosList;
     }
 
     @NonNull
@@ -31,14 +34,14 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
-        holder.tvTitle.setText(todosList.get(position).getTitle());
-        holder.tvBody.setText(todosList.get(position).getBody());
+        holder.tvTitle.setText(photosList.get(position).getTitle());
+        holder.tvBody.setText(photosList.get(position).getBody());
     }
 
     @Override
     public int getItemCount()
     {
-        return todosList.size();
+        return photosList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder

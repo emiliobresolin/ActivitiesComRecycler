@@ -1,4 +1,4 @@
-package com.example.activitiescomrecycler;
+package com.example.activitiescomrecycler.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.example.activitiescomrecycler.Adapters.PhotoAdapter;
+import com.example.activitiescomrecycler.Entities.Photos;
+import com.example.activitiescomrecycler.R;
+import com.example.activitiescomrecycler.RetrofitClient;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.activitiescomrecycler;
+package com.example.activitiescomrecycler.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,14 +8,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.activitiescomrecycler.Entities.Todos;
+import com.example.activitiescomrecycler.R;
+
 import java.util.List;
 
-public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder>
+public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.ViewHolder>
 {
-    private List<Comments> commentsList;
+    private List<Todos> todosList;
 
-    public CommentAdapter(List<Comments> commentsList) {
-        this.commentsList = commentsList;
+    public TodoAdapter(List<Todos> todosList)
+    {
+        this.todosList = todosList;
     }
 
     @NonNull
@@ -30,14 +34,14 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position)
     {
-        holder.tvTitle.setText(commentsList.get(position).getTitle());
-        holder.tvBody.setText(commentsList.get(position).getBody());
+        holder.tvTitle.setText(todosList.get(position).getTitle());
+        holder.tvBody.setText(todosList.get(position).getBody());
     }
 
     @Override
     public int getItemCount()
     {
-        return commentsList.size();
+        return todosList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder

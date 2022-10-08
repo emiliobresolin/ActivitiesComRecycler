@@ -7,6 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.activitiescomrecycler.Activities.AlbumsActivity;
+import com.example.activitiescomrecycler.Activities.CommentsActivity;
+import com.example.activitiescomrecycler.Activities.PhotosActivity;
+import com.example.activitiescomrecycler.Activities.PostsActivity;
+import com.example.activitiescomrecycler.Activities.TodosActivity;
+import com.example.activitiescomrecycler.Activities.UsersActivity;
+
 
 public class MainActivity extends AppCompatActivity
 {

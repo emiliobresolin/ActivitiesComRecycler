@@ -1,4 +1,4 @@
-package com.example.activitiescomrecycler;
+package com.example.activitiescomrecycler.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +9,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.activitiescomrecycler.Adapters.AlbumAdapter;
+import com.example.activitiescomrecycler.Entities.Albums;
+import com.example.activitiescomrecycler.R;
+import com.example.activitiescomrecycler.RetrofitClient;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,46 +21,47 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PostsActivity extends AppCompatActivity {
+public class AlbumsActivity extends AppCompatActivity
+{
     RecyclerView recyclerView;
     ProgressBar progressBar;
     LinearLayoutManager layoutManager;
-    PostAdapter adapter;
-    List<Posts> postList = new ArrayList<>();
+    AlbumAdapter adapter;
+    List<Albums> albumList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_posts1);
+        setContentView(R.layout.activity_albums);
 
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new PostAdapter(postList);
+        adapter = new AlbumAdapter(albumList);
         recyclerView.setAdapter(adapter);
 
-        fetchPosts();
+        fetchAlbums();
     }
-    private void fetchPosts()
+    private void fetchAlbums()
     {
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getRetrofitClient().getPosts().enqueue(new Callback<List<Posts>>() {
+        RetrofitClient.getRetrofitClient().getAlbums().enqueue(new Callback<List<Albums>>() {
             @Override
-            public void onResponse(Call<List<Posts>> call, Response<List<Posts>> response) {
+            public void onResponse(Call<List<Albums>> call, Response<List<Albums>> response) {
                 if (response.isSuccessful() && response.body() != null)
                 {
-                    postList.addAll(response.body());
+                    albumList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                     progressBar.setVisibility(View.GONE);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Posts>> call, Throwable t)
+            public void onFailure(Call<List<Albums>> call, Throwable t)
             {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(PostsActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AlbumsActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
