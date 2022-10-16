@@ -5,52 +5,44 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import com.example.activitiescomrecycler.Activities.AlbumsActivity;
-import com.example.activitiescomrecycler.Activities.CommentsActivity;
-import com.example.activitiescomrecycler.Activities.PhotosActivity;
-import com.example.activitiescomrecycler.Activities.PostsActivity;
-import com.example.activitiescomrecycler.Activities.TodosActivity;
-import com.example.activitiescomrecycler.Activities.UsersApiActivity;
+import com.example.activitiescomrecycler.DAO.DBHelper;
 
 public class LoginActivity extends AppCompatActivity {
-
+    EditText username, password;
+    Button btnlogin;
+    DBHelper DB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-    }
+        username = (EditText) findViewById(R.id.username1);
+        password = (EditText) findViewById(R.id.password1);
+        btnlogin = (Button) findViewById(R.id.btnsignin1);
+        DB = new DBHelper(this);
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
 
-
-    public void onClickPosts(View view)
-    {
-        Intent intent = new Intent(view.getContext(), PostsActivity.class);
-        startActivity(intent);
-    }
-    public void onClickUsers(View view)
-    {
-        Intent intent = new Intent(view.getContext(), UsersApiActivity.class);
-        startActivity(intent);
-    }
-    public void onClickComments(View view)
-    {
-        Intent intent = new Intent(view.getContext(), CommentsActivity.class);
-        startActivity(intent);
-    }
-    public void onClickPhotos(View view)
-    {
-        Intent intent = new Intent(view.getContext(), PhotosActivity.class);
-        startActivity(intent);
-    }
-    public void onClickTodos(View view)
-    {
-        Intent intent = new Intent(view.getContext(), TodosActivity.class);
-        startActivity(intent);
-    }
-    public void onClickAlbums(View view)
-    {
-        Intent intent = new Intent(view.getContext(), AlbumsActivity.class);
-        startActivity(intent);
+                if(user.equals("")||pass.equals(""))
+                    Toast.makeText(LoginActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                else{
+                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
+                    if(checkuserpass==true){
+                        Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
+                        Intent intent  = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 }
