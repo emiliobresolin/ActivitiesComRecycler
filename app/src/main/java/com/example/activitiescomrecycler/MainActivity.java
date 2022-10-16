@@ -12,10 +12,11 @@ import android.widget.Toast;
 
 import com.example.activitiescomrecycler.DAO.DBHelper;
 
+
 public class MainActivity extends AppCompatActivity
 {
     EditText loginUser, passwordUser;
-    Button signin;
+    Button signin, signup;
     DBHelper DB;
 
 
@@ -29,9 +30,10 @@ public class MainActivity extends AppCompatActivity
         passwordUser = (EditText) findViewById(R.id.passwordUser);
 
         signin = (Button) findViewById(R.id.btnsignin);
+        signup = (Button) findViewById((R.id.btnsignup)) ;
         DB = new DBHelper(this);
 
-        signin.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -47,22 +49,56 @@ public class MainActivity extends AppCompatActivity
                     Boolean checkuser = DB.checkuserlogin(user);
                     if(checkuser == false)
                     {
-                        Boolean insert =    DB.insertData(user, pass);
-                        if(insert == true)
+                        Boolean insert = DB.insertData(user, pass);
+                        if (insert==true)
                         {
-                            Toast.makeText(MainActivity.this, "Aproved!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                            startActivity(intent);
+                            Toast.makeText(MainActivity.this, "Register Successfully", Toast.LENGTH_SHORT)
+                                    .show();
                         }
                         else
                         {
-                            Toast.makeText(MainActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Register Failed", Toast.LENGTH_SHORT)
+                                    .show();
                         }
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, "User already exists please sign in",
+                                        Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
-
+        signin.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String user = loginUser.getText().toString();
+                String pass = passwordUser.getText().toString();
+                if(user.equals("")||pass.equals(""))
+                {
+                    Toast.makeText(MainActivity.this, "Please enter all the fields",
+                            Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Boolean checkuserpass = DB.checkuserpassword(user, pass);
+                    if (checkuserpass==true)
+                    {
+                        Toast.makeText(MainActivity.this, "Sign in Successfully",
+                                Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, "Invalid Credential",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
 
     }
 
