@@ -7,80 +7,54 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/postsButton"
+        android:id="@+id/btnsignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onClickPosts"
-        android:text="Posts"
+        android:layout_marginTop="60dp"
+        android:onClick="onClick"
+        android:text="LOGIN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordUser"
+        app:layout_constraintVertical_bias="0.092" />
 
-    <Button
-        android:id="@+id/Usersbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickUsers"
-        android:text="Users"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postsButton"
-        app:layout_constraintVertical_bias="0.062" />
-
-    <Button
-        android:id="@+id/CommentsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickComments"
-        android:text="Comments"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Usersbutton"
-        app:layout_constraintVertical_bias="0.101" />
-
-    <Button
-        android:id="@+id/photosButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:onClick="onClickPhotos"
-        android:text="Photos"
-        app:layout_constraintBottom_toTopOf="@+id/postsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/TodosButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickTodos"
-        android:text="Todos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CommentsButton"
-        app:layout_constraintVertical_bias="0.126" />
-
-    <Button
-        android:id="@+id/AlbumsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickAlbums"
-        android:text="Albums"
-        app:layout_constraintBottom_toTopOf="@+id/photosButton"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="240dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:text="LOGIN PAGE"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/passwordUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="PASSWORD"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginUser" />
+
+    <EditText
+        android:id="@+id/loginUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:ems="10"
+        android:hint="LOGIN"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

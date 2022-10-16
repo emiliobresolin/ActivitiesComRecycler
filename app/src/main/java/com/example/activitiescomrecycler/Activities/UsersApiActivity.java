@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersApiActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProgressBar progressBar;
     LinearLayoutManager layoutManager;
@@ -31,7 +31,7 @@ public class UsersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        setContentView(R.layout.activity_usersapi);
 
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
@@ -60,7 +60,7 @@ public class UsersActivity extends AppCompatActivity {
             public void onFailure(Call<List<Users>> call, Throwable t)
             {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(UsersActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(UsersApiActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
